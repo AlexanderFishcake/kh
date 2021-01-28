@@ -15,9 +15,11 @@ select c.class_no 수업번호
         ,c.class_name 수업명
         ,p.professor_no 교수번호
         ,p.professor_name 교수명
-from tb_class C
+from tb_class_professor CP
+    join tb_class C
+        on cp.class_no = c.class_no
     join tb_professor P
-        on c.department_no = p.department_no;
+        on cp.professor_no = p.professor_no;
 
 --3. 송박선 학생의 모든 학기 과목별 점수를 조회(학기, 학번, 학생명, 수업명, 점수)
 select g.term_no 학기
@@ -51,4 +53,5 @@ from tb_professor P
     join tb_student S
         on p.professor_no = s.coach_professor_no
 group by p.professor_no, p.professor_name
-having  count(*)>=5;
+having  count(*)>=5
+order by count(*) desc;
