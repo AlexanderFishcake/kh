@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>납품자 정보</title>
+</head>
+<body>
+    <form action="" method="get">
+        <fieldset>
+            <legend>납품자 정보</legend>
+            <ol>
+                <li>
+                    <label for="supplier">납품자명(필수) : </label>
+                    <input type="text" name="supplier" id="supplier" required>
+                </li><br>
+                <li>
+                    <label for="email">email(필수) : </label>
+                    <input type="email" name="email" id="email" required placeholder="answer@naver.com">
+                </li><br>
+                <li>
+                    <label for="homepage">홈페이지 : </label>
+                    <input type="url" name="homepage" id="homepage" value="http://">
+                </li><br>
+                <li>
+                    <label for="area">지역 : </label>
+                    <select name="area" id="area" size="1">
+                        <option value="1">서울</option>
+                        <option value="2">대구</option>
+                        <option value="3">광주</option>
+                        <option value="4" selected>부산</option>
+                    </select>
+                </li>
+            </ol>
+            
+        </fieldset>
+
+        <fieldset>
+            <legend>납품 정보</legend>
+            <ul>
+                <li>
+                    <label for="productName">상품명(필수) : </label>
+                    <input type="text" name="productName" id="productName" required>
+                </li><br>
+                <li>
+                    <label for="amount">납품수량(필수) : </label>
+                    <input type="number" name="amount" id="amount" required placeholder="최소 100" min="100">
+                </li><br>
+                <li>
+                    <label for="level">납품등급(필수) : </label>
+                    <input type="range" name="level" id="level" required min="1" max="5">
+                </li>
+                <li>
+                    <label for="etc">기타사항 : </label>
+                    <textarea name="etc" id="etc" cols="30" rows="2"></textarea>
+                </li>
+            </ul>
+
+        </fieldset>
+
+        <br>
+        <button type="submit">send message</button>
+
+
+
+    </form>
+</body>
+</html>
