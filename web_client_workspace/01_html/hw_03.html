@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html종합실습문제</title>
+</head>
+<body>
+    <form action="" method="get">
+
+        <label for="name">고객명 : </label>
+        <input type="text" name="name" id="name">
+        <br><br>
+        <label for="tel">전화번호(필수) : </label>
+        <input type="tel" name="tel" id="tel" required>
+        <br><br>
+        <label for="email">E-mail : </label>
+        <input type="email" name="email" id="email">
+        <br><br>
+        <label for="pizza">피자선택(필수)</label>
+        <select name="pizza" id="pizza">
+            <!-- 이거 초기값으로 보이게만 하고 선택하면 선택 안한것처럼 하고싶은데... -->
+            <option value="none">피자를 선택하세요</option>
+            <option value="슈퍼콤비네이션">슈퍼콤비네이션</option>
+            <option value="올미트">올미트</option>
+            <option value="더블치즈">더블치즈</option>
+        </select>
+        <br><br>
+        
+        <fieldset>
+            <legend>피자 사이즈(필수)</legend>
+            <input type="radio" name="size" id="Small">
+            <label for="Small">Small</label><br><br>
+            <input type="radio" name="size" id="Medium" checked>
+            <label for="Medium">Medium</label><br><br>
+            <input type="radio" name="size" id="Large">
+            <label for="Large">Large</label><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>토핑 선택</legend>
+            <input type="checkbox" name="topping" id="bacon">
+            <label for="bacon">베이컨</label><br><br>
+            <input type="checkbox" name="topping" id="cheese">
+            <label for="cheese">치즈</label><br><br>
+            <input type="checkbox" name="topping" id="onion">
+            <label for="onion">양파</label><br><br>
+            <input type="checkbox" name="topping" id="mushroom">
+            <label for="mushroom">버섯</label><br><br>
+        </fieldset>
+        <br>
+
+        <label for="time">희망 배송 시간 : </label>
+        <input type="time" name="time" id="time"><br><br>
+
+        <label for="etc">배송시 요청사항 : </label>
+        <textarea name="etc" id="etc" cols="20" rows="3"></textarea><br><br>
+
+        <button type="submit">주문하기</button>
+    </form>
+</body>
+</html>
