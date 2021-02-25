@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+ <head>
+  <meta charset="UTF-8">
+  <title>갤러리 만들기</title>
+ </head>
+ <body>
+  <h2>사진 갤러리 만들기</h2>
+  <hr/>
+  <div id="gallery">
+	  <ul>
+		  <li> 
+			  <img src="sample/image/flower1.png" class="small" width="120" height="90"> 
+			  <img src="sample/image/flower1.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="sample/image/flower2.png" class="small" width="120" height="90"> 
+			  <img src="sample/image/flower2.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="sample/image/flower3.png" class="small" width="120" height="90"> 
+			  <img src="sample/image/flower3.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="sample/image/flower4.png" class="small" width="120" height="90"> 
+			  <img src="sample/image/flower4.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="sample/image/flower5.png" class="small" width="120" height="90">
+			  <img src="sample/image/flower5.png" class="pic"> 
+		  </li>
+		  <li>
+			  <img src="sample/image/forest1.png" class="small" width="120" height="90">
+			  <img src="sample/image/forest1.png" class="pic"> 
+		  </li>
+	  </ul>
+  </div>
+
+  <style>
+	  li{
+		  list-style-type: none;
+		  float: left;
+		  position: relative;/*이걸 쓰는 위치 기준으로 팝업이 바뀐다..*/
+	  }
+	  #gallery{
+            width: 460px;
+            height: 250px;
+            background-color: rgba(0, 0, 0, 0.9);
+            margin: auto;
+			border: 10px solid black;
+	  }
+
+	  .small{
+		margin-right: 10px;
+		margin-bottom: 10px;
+		
+	  }
+	  .pic{
+		position: absolute;
+		left: -9999px; /*구글링*/
+	  }
+	  li:hover .pic{
+		  width: 400px;
+		  top: 70px;
+		  left: 100px;
+		  border: 5px solid #000;
+		  z-index: 5;/*이거해야 팝업이 맨위로뜸*/
+	  }
+  </style>
+ </body>
+</html>
