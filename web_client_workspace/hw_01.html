@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>체크박스(체크박스를 라디오 버튼처럼 사용하기 / 전체선택 or 전체해제)</title>
+</head>
+<body>
+    <table>
+        <caption><h2><b>사은품 선택</b></h2></caption>
+        <tr>
+            <th>종류</th>
+            <td>
+                <input type="checkbox" name="product" id="mainboard" onclick="test1(this);">
+                <label for="mainboard">메인보드</label>
+                <input type="checkbox" name="product" id="monitor" onclick="test1(this);">
+                <label for="monitor">모니터</label>
+                <input type="checkbox" name="product" id="printer" onclick="test1(this);">
+                <label for="printer">프린터</label>
+                <input type="checkbox" name="product" id="harddisk" onclick="test1(this);">
+                <label for="harddisk">하드디스크</label>
+                <input type="checkbox" name="product" id="memory" onclick="test1(this);">
+                <label for="memory">메모리</label>
+                <input type="checkbox" name="product" id="cpu" onclick="test1(this);">
+                <label for="cpu">CPU</label>
+            </td>
+        </tr>
+    </table>
+    
+    <style>
+        table{
+            border: 1px solid #000;
+            border-collapse: collapse;
+        }
+        td{
+            border: 1px solid #000;
+            padding: 5px;
+        }
+        th{
+            color: orangered;
+            padding: 5px;
+        }
+
+    </style>
+    <script>
+        function test1(chk){
+            var box = document.getElementsByName("product");
+            //  console.log(box);
+            if(chk.checked)
+                var flag = true;
+            for(var i = 0; i<box.length;i++){
+                box[i].checked=false;
+            }
+            if(flag==true)
+                chk.checked=true;
+        }
+    </script>
+</body>
+</html>
