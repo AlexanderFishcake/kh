@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>@실습문제3</title>
+<style>
+	fieldset{
+		background-color: gainsboro;
+		text-align: center;
+		width: 400px;
+	}
+	.box{
+		background-color: gold;
+		/* padding: 10px; */
+		width: 600px;
+		overflow: hidden;
+		height: 0px;
+	}
+</style>
+</head>
+<body>
+	<h2>@실습문제3</h2>
+	<fieldset>
+		<legend>검색할 항목을 선택하세요.</legend>
+		<input type="radio" name="category" value="title" onclick="showDiv1();" id="title"><label for="title">제목</label>&nbsp; &nbsp; 
+		<input type="radio" name="category" value="date" onclick="showDiv1();"  id="date"><label for="date">날짜</label>&nbsp; &nbsp; 
+		<input type="radio" name="category" value="writer" onclick="showDiv1();" id="writer"><label for="writer">작성자</label>&nbsp; &nbsp;
+	</fieldset>
+	<hr>
+	<div id="titleBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 제목을 입력하세요 : </label>
+			<br> 
+			<input type="search" name="title" size="50"> &nbsp;
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	<div id="dateBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 날짜를 선택하세요 : </label>
+			<br>
+			<input type="date" name="start"> - 
+			<input type="date" name="end"> &nbsp; 
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	<div id="writerBox" class="box">
+		<form method="post" action="">
+			<label> 검색할 작성자 아이디를 입력하세요 : </label>
+			<br>
+			<input type="search" name="writer" size="25"> &nbsp; 
+			<input type="submit" value="검색">
+		</form>
+	</div>
+	<script type="text/javascript">
+	//요구한 내용을 변수, 연산자, 제어문 등을 사용하여 실행되게 하시오.
+	//제목 체크시, titleBox 만 보여지게
+	//날짜 체크시, dateBox 만 보여지게
+	//작성자 체크시, writerBox 만 보여지게 함
+	function showDiv1(){
+		var category = document.getElementsByName("category");
+		var tb = document.getElementById("titleBox");
+		var box = document.getElementsByClassName("box");
+
+		// console.log(box);
+		//for문을 돌면서 해당 radio에 맞는 box의 height만 넓히고 그 외에는 0으로 바꾼다.
+		//이거 for in으로 하면 오류난다. uncaught TypeError: Cannot read property 어쩌구
+		//padding을 css에 넣으면 height=0px로 해도 보이게 된다. 그래서 js로 넣은건데..
+		for (var i=0; i<category.length;i++){
+			if(category[i].checked){
+				box[i].style.height="fit-content";
+				box[i].style.padding="10px";
+			}
+			else {
+				box[i].style.height="0px";
+				box[i].style.padding="0px";
+			}
+		}
+	}
+  	</script>
+</body>
+</html>
