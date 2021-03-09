@@ -29,23 +29,24 @@
             this.css3 = css3;
             this.javascript = javascript;
 
-            this.getSum = java+oracle+html5+css3+javascript;
+            this.getSum = function(){
+                return java+oracle+html5+css3+javascript;
+            }
             //this.getSum에서 this를 빼먹으면 어딜 참조하길래
             //Uncaught ReferenceError: getSum is not defined 가 나오는걸까...
-            this.getAvg = Math.round(this.getSum/5*10)/10;
+            this.getAvg = function(){
+                return Math.round(this.getSum()/5*10)/10;
+            }
             this.toString = function(){
                 var str='';
-                // for(var key in this){
-                //     key!="toString" && (str += key+"="+this[key]+", ");
-                // }
                 str = "이름="+this.name+
                         ", java="+this.java+
                         ", oracle="+this.oracle+
                         ", html5="+this.html5+
                         ", css3="+this.css3+
                         ", javascript="+this.javascript+
-                        ", 총점="+this.getSum+
-                        ", 평점="+this.getAvg;
+                        ", 총점="+this.getSum()+
+                        ", 평점="+this.getAvg();
 
                 return str;
             }
@@ -55,7 +56,7 @@
             result.push(new Student('김동현',90,56,56,44,34));
             result.push(new Student('홍길동',45,76,34,33,56));
             result.push(new Student('유관순',76,34,54,56,22));
-            // console.log(result);
+            
             for(var key in result){
                 console.log(result[key].toString());
             }
