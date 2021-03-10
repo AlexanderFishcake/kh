@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습문제_이벤트</title>
+</head>
+<body>
+    <h1>@실습문제_이벤트</h1>
+    <!-- 버튼태그로 만들 때는 type을 반드시 작성한다. -->
+    <!-- 
+        1. #btn-generate를 클릭하면,
+        아래 데이터를 javascript객체로 먼저 만들고 배열로 관리한다.
+        2. 배열을 순회하면서, button태그를 동적으로 생성한다.
+        3. 생성된 button태그를 클릭하면, 각각의 url로 페이지를 이동한다.
+
+        버튼 value      이동할 url
+        -----------------------------
+        네이버          https://www.naver.com
+        구글            https://www.google.com
+        KH              https://www.iei.or.kr
+        와삼            https://www.w3schools.com
+     -->
+    <button type="button" id="btn-generate">버튼생성</button><br><br>
+    <div class="btn-wrapper"></div>    
+    
+    <script>
+        document.querySelector("#btn-generate").onclick = createButton;
+
+        function createButton(){
+            var obj = {
+                네이버 : 'https://www.naver.com',
+                구글 : 'https://www.google.com',
+                KH : 'https://www.iei.or.kr',
+                와삼 : 'https://www.w3schools.com'
+            }
+
+            // console.log(obj['네이버']);
+            for(var key in obj){
+                console.log(obj[key]);
+                document.querySelector(".btn-wrapper").innerHTML
+                    += '<a href="'+obj[key]+'"><input type="button" style="width: 60px; height: 30px" value="'+key+'""></a>&nbsp&nbsp';
+            }
+
+        }
+    </script>
+</body>
+</html>
