@@ -27,23 +27,33 @@
     
     <script>
         document.querySelector("#btn-generate").onclick = createButton;
-
-        function createButton(){
-            var obj = {
+        var obj = {
                 네이버 : 'https://www.naver.com',
                 구글 : 'https://www.google.com',
                 KH : 'https://www.iei.or.kr',
                 와삼 : 'https://www.w3schools.com'
             }
+        function createButton(){
 
-            // console.log(obj['네이버']);
             for(var key in obj){
-                console.log(obj[key]);
-                document.querySelector(".btn-wrapper").innerHTML
-                    += '<a href="'+obj[key]+'"><input type="button" style="width: 60px; height: 30px" value="'+key+'""></a>&nbsp&nbsp';
-            }
+                //solution 1
+                // document.querySelector(".btn-wrapper").innerHTML
+                //     += '<a href="'+obj[key]+'"><input type="button" style="width: 60px; height: 30px" value="'+key+'""></a>&nbsp&nbsp';
 
+                //solution 2
+                newBtn = document.createElement("button");
+                newBtn.innerText=key;
+                newBtn.style.width = "60px";
+                newBtn.style.height = "30px";
+                newBtn.style.margin = "5px";
+                document.querySelector(".btn-wrapper").appendChild(newBtn);
+            }
         }
+        document.querySelector(".btn-wrapper").onclick = function(e){
+            // obj[key]로 하면 와삼스쿨만 나온다..
+            var w = open(obj[e.target.innerText]);
+            // location.href = obj[e.target.innerText];
+        };
     </script>
 </body>
 </html>
