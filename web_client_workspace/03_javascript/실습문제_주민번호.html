@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        다음과 같은 input태그에서 주민번호를 체크하는 정규표현식을 작성해서,
+        유효한지 아닌지 alert를 통해 처리할세요.
+        900909-1234566
+        1. 숫자6자리 - 숫자7자리 맞게 쓰도록.
+        2. 8자리는 1234중에서만 가능.
+        3. 34는 월, 56은 일 이므로 01<[34]<12, 01<[56]<31...
+        4. 3을 더 세분화해서 [34]가 짝수면 [56]<=30, 홀수면 [56]<=31, 2면 [56]<29
+        5. 변경 전 주민등록번호 공식...은 패스.
+     -->
+    <p>1. 다음과 같은 input태그에서 주민번호의 자릿수를 체크하는 정규표현식을 작성하라.</p>
+    <label>주민번호 입력 : </label>
+    <input type="text" id="ssn">
+    <button type='button' onclick="testSSN();">실행확인</button>
+    <script>
+        function testSSN(){
+            var num = ssn.value;
+            reg = /^[\d]{6}-[\d]{7}$/;
+            //1.
+            // console.log(reg.test(num));
+            if(!reg.test(num)){
+                console.log("자릿수 틀림");
+                alert("입력이 올바르지 않습니다.");
+                return;
+            }
+            //2.
+            if(!(num[7]>=1 && num[7]<=4)){
+                console.log("남여 숫자 틀림");
+                alert("입력이 올바르지 않습니다.");
+                return; 
+            }
+            //3. 4.
+            var month = Number(num.substr(2,2));
+            var date = Number(num.substr(4,2));
+
+            if(!(month>=1 && month<=12)){
+                console.log("월수 틀림");
+                alert("입력이 올바르지 않습니다.");
+                return;
+            }
+            else{
+                if(month==2){
+                    if(date>29){
+                        console.log("일수 틀림");
+                        alert("입력이 올바르지 않습니다.");
+                        return;
+                    }
+                }
+                else if(month%2==0){
+                    if(date>=32){
+                        console.log("일수 틀림");
+                        alert("입력이 올바르지 않습니다.");
+                        return;
+                    }
+                }
+                else{
+                    if(date>=31){
+                        console.log("일수 틀림");
+                        alert("입력이 올바르지 않습니다.");
+                        return;
+                    }
+                }
+            }
+            alert("입력하신 주민번호 : "+num);
+
+        }
+    </script>
+</body>
+</html>
